@@ -1,0 +1,26 @@
+<h1>CD Collection</h1>
+
+#if($cds)
+  <ul>
+    #foreach($cd in $cds)
+      <li>
+        <strong>$cd.getArtist()</strong>
+        <em>$cd.getTitle()</em>
+      </li>
+    #end
+  </ul>
+#else
+  <p>Get some CDs, fool!</p>
+#end
+
+<p>Add a CD:</p>
+
+<form class="form-group" action="/" method="post">
+  <label for="inputArtist">Artist:</label>
+  <input type="text" id="inputArtist" name="inputArtist">
+
+  <label for="inputTitle">Title:</label>
+  <input type="text" id="inputTitle" name="inputTitle">
+
+  <button type="submit" class="btn btn-primary">Add this CD!</button>
+</form>
