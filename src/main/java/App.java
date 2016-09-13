@@ -22,14 +22,12 @@ public class App {
       ArrayList<CD> cds = request.session().attribute("cds");
       if (cds == null) {
         cds = new ArrayList<CD>();
+        request.session().attribute("cds", cds);
       }
-
       String artist = request.queryParams("inputArtist");
       String title = request.queryParams("inputTitle");
       CD newCd = new CD(artist, title);
       cds.add(newCd);
-      System.out.println(cds.size() + " " + cds.get(0).getArtist());
-
       model.put("cds", cds);
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
